@@ -1,0 +1,16 @@
+$primary-color: #cfd9e0;
+.container {
+  .navbarRoot {
+    background-color: #0b2239;
+    .brand {
+      color: $primary-color;
+    }
+    .link {
+      color: $primary-color !important;
+      font-size: 14px;
+    }
+    .link:hover {
+      color: rgb(195, 194, 194) !important;
+    }
+  }
+}
