@@ -7,6 +7,8 @@ function App() {
     <Router>
       <div className='App'>
         <Switch>
+          <Route path='/serach-packs'></Route>
+          <Route path='/search-icons'></Route>
           <Route path='/'>
             <Home />
           </Route>
