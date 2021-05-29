@@ -7,6 +7,9 @@ export interface iconState {
   tokenBlocks : {
     token : string
     tokenAccepted : boolean
+  },
+  TotalBlocks:{
+    iconTotals : number
   }
 }
 
@@ -16,6 +19,9 @@ const initialState: iconState = {
   tokenBlocks : {
     token : '',
     tokenAccepted : false
+  },
+  TotalBlocks:{
+    iconTotals : 0
   }
 }
 
@@ -28,12 +34,16 @@ export const iconSlice = createSlice({
       if(action.payload.token){
         state.tokenBlocks.tokenAccepted = true
       }
+    },
+    addIconTotal : (state,action)=>{
+      state.TotalBlocks.iconTotals = action.payload.iconTotals
     }
   },
 })
 
-export const { addToken} = iconSlice.actions
+export const { addToken,addIconTotal} = iconSlice.actions
 
 export const selectCount = (state: RootState) => state.icons.value
 export const selectTokenBlocks = (state : RootState)=> state.icons.tokenBlocks
+export const selectTotalBlocks = (state:RootState)=>state.icons.TotalBlocks
 export default iconSlice.reducer
