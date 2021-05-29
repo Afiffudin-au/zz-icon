@@ -5,7 +5,6 @@ import { useAppSelector } from '../../redux/app/hooks'
 import { selectTokenBlocks } from '../../redux/features/icon/iconSlice'
 import style from './Banner.module.scss'
 import SearchBanner from './SearchBanner/SearchBanner'
-import RadioButtonsGroup from './RadioButtonsGroup/RadioButtonsGroup'
 function Banner() {
   const { getTotalIcon } = useGetTotal()
   const { token, tokenAccepted } = useAppSelector(selectTokenBlocks)
@@ -27,7 +26,6 @@ function Banner() {
           <SearchBanner />
         </Container>
       </Jumbotron>
-      <RadioButtonsGroup />
     </div>
   )
 }

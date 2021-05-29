@@ -1,8 +1,15 @@
 // Codepen spesific styling - only to center the elements in the pen preview and viewport
 .container {
+  background-color: white;
+  box-shadow: 0 0 30px rgba(14, 42, 71, 0.25);
+  position: absolute;
+  border-radius: 8px;
+  padding: 10px;
+  top: 51px;
   $primary-color: #44d17f; // Change color here. C'mon, try it!
   $text-color: #5f7d95;
   form {
+    font-size: 14px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
