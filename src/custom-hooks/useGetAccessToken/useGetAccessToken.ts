@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useAppDispatch } from '../../redux/app/hooks'
-import { addToken } from '../../redux/features/counter/counterSlice'
+import { addToken } from '../../redux/features/icon/iconSlice'
 import { headers } from '../header/header'
 
 export const useGetAccessToken = ()=>{

@@ -5,7 +5,7 @@ export const useGetTotal = ()=>{
       method : 'get',
       headers : {
         'Accept':'application/json',
-        'Authorization': token,
+        'Authorization': 'Bearer '+token,
       },
       url : 'https://api.flaticon.com/v2/total/icons',
       params : {
