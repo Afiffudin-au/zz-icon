@@ -1,35 +1,30 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../../app/store'
 
-export interface CounterState {
+export interface iconState {
   value: number
   status: 'idle' | 'loading' | 'failed'
+  token : string
 }
 
-const initialState: CounterState = {
+const initialState: iconState = {
   value: 0,
   status: 'loading',
+  token : ''
 }
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const iconSlice = createSlice({
+  name: 'icon',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1
-    },
-    decrement: (state) => {
-      state.value -= 1
-    },
-    // Use the PayloadAction type to declare the contents of `action.payload`
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload
-    },
+    addToken : (state,action)=>{
+      state.token = action.payload.token
+    }
   },
 })
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { addToken} = iconSlice.actions
 
-export const selectCount = (state: RootState) => state.counter.value
-
-export default counterSlice.reducer
+export const selectCount = (state: RootState) => state.icons.value
+export const selectToken = (state : RootState)=> state.icons.token
+export default iconSlice.reducer
