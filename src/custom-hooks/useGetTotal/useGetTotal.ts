@@ -1,5 +1,8 @@
 import axios from 'axios'
+import { useAppDispatch } from '../../redux/app/hooks'
+import { addIconTotal } from '../../redux/features/icon/iconSlice'
 export const useGetTotal = ()=>{
+  const dispatch = useAppDispatch()
   const getTotalIcon = (token:Required<string>)=>{
     axios({
       method : 'get',
@@ -12,7 +15,9 @@ export const useGetTotal = ()=>{
         apikey : process.env.REACT_APP_API_KEY
       }
     }).then(res=>{
-      console.log(res.data)
+      dispatch(addIconTotal({
+        iconTotals : res.data.data.total
+      }))
     }).catch(err=>{
       alert(err)
     })

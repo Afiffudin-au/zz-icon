@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import style from './RadioButtonsGroup.module.scss'
 export default function RadioButtonsGroup({
   handleCheck,
