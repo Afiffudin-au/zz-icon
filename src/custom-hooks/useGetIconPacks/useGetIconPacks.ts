@@ -4,6 +4,7 @@ export const useGetIconPacks = ()=>{
   const [dataIcons,setDataIcons] = useState<any>([])
   const [isLoading,setIsLoading] = useState<boolean>(false)
   const getIconPacks = (token:Required<string>,page = 1,limit = 12)=>{
+    setIsLoading(true)
     axios({
       method : 'get',
       headers : {
@@ -16,12 +17,16 @@ export const useGetIconPacks = ()=>{
         limit : limit
       }
     }).then(res=>{
-      console.log(res.data)
+      setIsLoading(false)
+      setDataIcons(res.data)
     }).catch(err=>{
+      setIsLoading(false)
       alert(err)
     })
   }
   return{
-    getIconPacks
+    getIconPacks,
+    isLoading,
+    dataIcons
   }
 }
