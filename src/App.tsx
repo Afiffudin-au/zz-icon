@@ -6,7 +6,8 @@ import Home from './components/Home/Home'
 function App() {
   const { getAccessToken } = useGetAccessToken()
   useEffect(() => {
-    // getAccessToken()
+    getAccessToken()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <Router>
