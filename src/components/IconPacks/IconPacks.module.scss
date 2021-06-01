@@ -1,7 +1,51 @@
+@mixin button() {
+  background-color: #0288d1;
+  width: 100px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  transition: all ease 0.1s;
+  &:hover {
+    background-color: #0277bd;
+  }
+}
 .iconPacks {
   .title {
     color: #0b2239;
     font-weight: 600;
     text-align: center;
+  }
+  .loading {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .loading > * {
+    margin-right: 20px;
+    color: #3fb5b5 !important;
+    width: 25px !important;
+    height: 25px !important;
+  }
+  .pagenation {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    margin-right: 10px;
+    .arrowBack {
+      @include button();
+    }
+    .pageNumber {
+      color: #0277bd;
+      font-weight: 600;
+      margin: 0;
+    }
+    .arrowForward {
+      @include button();
+    }
   }
 }
