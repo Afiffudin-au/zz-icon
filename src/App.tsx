@@ -3,6 +3,7 @@ import './App.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { useGetAccessToken } from './custom-hooks/useGetAccessToken/useGetAccessToken'
 import Home from './components/Home/Home'
+import SearchIcon from './components/SearchIcon/SearchIcon'
 function App() {
   const { getAccessToken } = useGetAccessToken()
   useEffect(() => {
@@ -14,7 +15,9 @@ function App() {
       <div className='App'>
         <Switch>
           <Route path='/search-packs'></Route>
-          <Route path='/search-icons'></Route>
+          <Route path='/search-icons'>
+            <SearchIcon />
+          </Route>
           <Route path='/'>
             <Home />
           </Route>
