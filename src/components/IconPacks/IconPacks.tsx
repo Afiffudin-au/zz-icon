@@ -24,7 +24,7 @@ function IconPacks() {
   const { getIconPacks, dataIcons, isLoading } = useGetIconPacks()
   useEffect(() => {
     if (token) {
-      getIconPacks(token)
+      // getIconPacks(token)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tokenAccepted])

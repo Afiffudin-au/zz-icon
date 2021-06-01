@@ -3,10 +3,12 @@ import style from './SearchBanner.module.scss'
 import SearchIcon from '@material-ui/icons/Search'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import RadioButtonsGroup from '../RadioButtonsGroup/RadioButtonsGroup'
+import { useHistory } from 'react-router'
 function SearchBanner() {
   const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false)
   const [typeToSearch, setTypeToSearch] = useState<string>('icons')
   const [isChecked, setIsChecked] = useState<boolean>(false)
+  const history = useHistory()
   const handleCheck = (type: string) => {
     setIsChecked(!isChecked)
     setTypeToSearch(type)
@@ -15,10 +17,18 @@ function SearchBanner() {
   const handleOpen = () => {
     setIsOpenMenu(!isOpenMenu)
   }
-  console.log(typeToSearch)
+  const handleSearch = (e: any) => {
+    e.preventDefault()
+    if (typeToSearch === 'icons') {
+      history.push('/search-icons')
+    }
+    if (typeToSearch === 'packs') {
+      history.push('/search-packs')
+    }
+  }
   return (
     <>
-      <form className={style.searchBanner} action='/'>
+      <form onSubmit={handleSearch} className={style.searchBanner} action='/'>
         <div className={style.searchBar}>
           <div className={style.dropdownWrap}>
             <div className={style.dropdown} onClick={handleOpen}>
@@ -36,7 +46,7 @@ function SearchBanner() {
           </div>
 
           <input className={style.searchInput} type='text' />
-          <div className={style.searchButton}>
+          <div onClick={handleSearch} className={style.searchButton}>
             <div>
               <SearchIcon style={{ color: 'white' }} />
             </div>
