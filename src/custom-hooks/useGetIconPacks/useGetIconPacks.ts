@@ -3,7 +3,7 @@ import { useState } from 'react'
 export const useGetIconPacks = ()=>{
   const [dataIcons,setDataIcons] = useState<any>([])
   const [isLoading,setIsLoading] = useState<boolean>(false)
-  const getIconPacks = (token:Required<string>,page = 1,limit = 12)=>{
+  const getIconPacks = (token:Required<string>,page = 1,limit = 20)=>{
     setIsLoading(true)
     axios({
       method : 'get',

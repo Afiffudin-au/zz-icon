@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from './CardIconPack.module.scss'
 interface CardIconPacksItems {
   image: string
@@ -12,11 +12,24 @@ function CardIconPacks({
   description,
   id,
 }: Required<CardIconPacksItems>) {
+  const [imageLoad, setImageLoad] = useState<boolean>(false)
+  const [display, setDisplay] = useState<string>('none')
+  const handleImageLoad = () => {
+    setDisplay('block')
+    setImageLoad(true)
+  }
   return (
     <div className={style.cardIconPack}>
       <div className={style.imageThumb}>
+        {!imageLoad && <img src='/e8e8e8.png' alt='' />}
+
         <picture>
-          <img src={image} alt={description} />
+          <img
+            style={{ display: display }}
+            onLoad={handleImageLoad}
+            src={image}
+            alt={description}
+          />
         </picture>
       </div>
 
