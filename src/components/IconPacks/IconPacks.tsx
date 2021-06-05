@@ -5,7 +5,7 @@ import { useGetIconPacks } from '../../custom-hooks/useGetIconPacks/useGetIconPa
 import { useAppSelector } from '../../redux/app/hooks'
 import { selectTokenBlocks } from '../../redux/features/icon/iconSlice'
 import CardIconPacks from '../CardIconPack/CardIconPack'
-import { CircularProgress } from '@material-ui/core'
+import LoadingCircle from '../Progress/LoadingCircle/LoadingCircle'
 interface IconPacksItems {
   catagory: string
   id: number
@@ -24,7 +24,7 @@ function IconPacks() {
   const { getIconPacks, dataIcons, isLoading } = useGetIconPacks()
   useEffect(() => {
     if (token) {
-      // getIconPacks(token)
+      getIconPacks(token)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tokenAccepted])
@@ -44,7 +44,7 @@ function IconPacks() {
       <h3 className={style.title}>Popular Icon Packs</h3>
       {isLoading && (
         <div className={style.loading}>
-          <CircularProgress />
+          <LoadingCircle />
         </div>
       )}
       <GridContainer>

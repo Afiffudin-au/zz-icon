@@ -10,6 +10,10 @@ export interface iconState {
   },
   TotalBlocks:{
     iconTotals : number
+  },
+  iconSearchBlocks:{
+    loading : boolean,
+    dataIcons : any
   }
 }
 
@@ -22,7 +26,12 @@ const initialState: iconState = {
   },
   TotalBlocks:{
     iconTotals : 0
+  },
+  iconSearchBlocks :{
+    dataIcons : [],
+    loading : false
   }
+
 }
 
 export const iconSlice = createSlice({
@@ -37,13 +46,18 @@ export const iconSlice = createSlice({
     },
     addIconTotal : (state,action)=>{
       state.TotalBlocks.iconTotals = action.payload.iconTotals
+    },
+    addIconResult : (state,action)=>{
+      state.iconSearchBlocks.loading = action.payload.loading
+      state.iconSearchBlocks.dataIcons = action.payload.dataIcons || []
     }
   },
 })
 
-export const { addToken,addIconTotal} = iconSlice.actions
+export const { addToken,addIconTotal,addIconResult} = iconSlice.actions
 
 export const selectCount = (state: RootState) => state.icons.value
 export const selectTokenBlocks = (state : RootState)=> state.icons.tokenBlocks
 export const selectTotalBlocks = (state:RootState)=>state.icons.TotalBlocks
+export const selectIconSearchBlocks = (state:RootState)=>state.icons.iconSearchBlocks
 export default iconSlice.reducer

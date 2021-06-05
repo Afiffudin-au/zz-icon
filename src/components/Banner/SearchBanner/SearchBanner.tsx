@@ -4,10 +4,16 @@ import SearchIcon from '@material-ui/icons/Search'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import RadioButtonsGroup from '../RadioButtonsGroup/RadioButtonsGroup'
 import { useHistory } from 'react-router'
+import { useAppSelector } from '../../../redux/app/hooks'
+import { useGetSearchIcon } from '../../../custom-hooks/useGetSearchIcon/useGetSearchIcon'
+import { selectTokenBlocks } from '../../../redux/features/icon/iconSlice'
 function SearchBanner() {
   const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false)
   const [typeToSearch, setTypeToSearch] = useState<string>('icons')
   const [isChecked, setIsChecked] = useState<boolean>(false)
+  const [query, setQuery] = useState<string>('')
+  const { token, tokenAccepted } = useAppSelector(selectTokenBlocks)
+  const { getSearchIcon } = useGetSearchIcon()
   const history = useHistory()
   const handleCheck = (type: string) => {
     setIsChecked(!isChecked)
@@ -19,10 +25,20 @@ function SearchBanner() {
   }
   const handleSearch = (e: any) => {
     e.preventDefault()
+    const userText = query.replace(/^\s+/, '').replace(/\s+$/, '')
+    if (userText === '') {
+      return
+    }
     if (typeToSearch === 'icons') {
+      if (tokenAccepted) {
+        getSearchIcon(token, query)
+      }
       history.push('/search-icons')
     }
     if (typeToSearch === 'packs') {
+      if (tokenAccepted) {
+        getSearchIcon(token, query)
+      }
       history.push('/search-packs')
     }
   }
@@ -45,7 +61,11 @@ function SearchBanner() {
             )}
           </div>
 
-          <input className={style.searchInput} type='text' />
+          <input
+            onChange={(e) => setQuery(e.target.value)}
+            className={style.searchInput}
+            type='text'
+          />
           <div onClick={handleSearch} className={style.searchButton}>
             <div>
               <SearchIcon style={{ color: 'white' }} />
