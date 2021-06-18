@@ -51,6 +51,7 @@ function IconPacks() {
         {!isLoading &&
           dataIcons?.data?.map((item: IconPacksItems, index: number) => (
             <CardIconPacks
+              key={item.id}
               id={item.id}
               image={item.images.sprite}
               description={item.description}
