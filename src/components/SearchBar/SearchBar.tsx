@@ -4,8 +4,8 @@ import SearchIcon from '@material-ui/icons/Search'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import RadioButtonsGroup from '../Banner/RadioButtonsGroup/RadioButtonsGroup'
 import { useHistory } from 'react-router'
-import { useAppSelector } from '../../redux/app/hooks'
-import { selectTokenBlocks } from '../../redux/features/icon/iconSlice'
+import { useAppDispatch, useAppSelector } from '../../redux/app/hooks'
+import { addParameter, selectTokenBlocks } from '../../redux/features/icon/iconSlice'
 import { useGetSearchIcon } from '../../custom-hooks/useGetSearchIcon/useGetSearchIcon'
 import { useGetAccessToken } from '../../custom-hooks/useGetAccessToken/useGetAccessToken'
 function SearchBar() {
@@ -17,6 +17,7 @@ function SearchBar() {
   const { getSearchIcon } = useGetSearchIcon()
   const { getAccessToken } = useGetAccessToken()
   const history = useHistory()
+  const dispatch = useAppDispatch()
   const handleCheck = (type: string) => {
     setIsChecked(!isChecked)
     setTypeToSearch(type)
@@ -34,12 +35,18 @@ function SearchBar() {
     if (typeToSearch === 'icons') {
       if (tokenAccepted) {
         getSearchIcon(token, query)
+        dispatch(addParameter({
+          query : query
+        }))
       }
       history.push('/search-icons')
     }
     if (typeToSearch === 'packs') {
       if (tokenAccepted) {
         getSearchIcon(token, query)
+        dispatch(addParameter({
+          query : query
+        }))
       }
       history.push('/search-packs')
     }

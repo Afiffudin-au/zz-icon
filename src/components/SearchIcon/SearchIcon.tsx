@@ -23,7 +23,6 @@ interface SearchIconItems {
 }
 function SearchIcon() {
   const { dataIcons, loading } = useAppSelector(selectIconSearchBlocks)
-  console.log(dataIcons)
   return (
     <div className={style.searchIcon}>
       <NavigationBar />
@@ -41,20 +40,6 @@ function SearchIcon() {
               premium={item.premium}
             />
           ))}
-
-        {/* <CardIcon />
-        <CardIcon />
-        <CardIcon />
-        <CardIcon />
-        <CardIcon />
-        <CardIcon />
-        <CardIcon />
-        <CardIcon />
-        <CardIcon />
-        <CardIcon />
-        <CardIcon />
-        <CardIcon />
-        <CardIcon /> */}
       </GridContainerIcon>
     </div>
   )

@@ -4,6 +4,9 @@ import { RootState } from '../../app/store'
 export interface iconState {
   value: number
   status: 'idle' | 'loading' | 'failed'
+  parametersApi : {
+    query : string
+  }
   tokenBlocks : {
     token : string
     tokenAccepted : boolean
@@ -20,6 +23,9 @@ export interface iconState {
 const initialState: iconState = {
   value: 0,
   status: 'loading',
+  parametersApi : {
+    query : ''
+  },
   tokenBlocks : {
     token : '',
     tokenAccepted : false
@@ -38,6 +44,9 @@ export const iconSlice = createSlice({
   name: 'icon',
   initialState,
   reducers: {
+    addParameter : (state,action)=>{
+      state.parametersApi.query = action.payload.query
+    },
     addToken : (state,action)=>{
       state.tokenBlocks.token = action.payload.token
       if(action.payload.token){
@@ -54,7 +63,7 @@ export const iconSlice = createSlice({
   },
 })
 
-export const { addToken,addIconTotal,addIconResult} = iconSlice.actions
+export const { addToken,addIconTotal,addIconResult,addParameter} = iconSlice.actions
 
 export const selectCount = (state: RootState) => state.icons.value
 export const selectTokenBlocks = (state : RootState)=> state.icons.tokenBlocks
