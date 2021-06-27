@@ -1,6 +1,6 @@
 const { Tooltip, withStyles } = require('@material-ui/core')
 
-export const DarkTooltip = withStyles((theme:any) => ({
+export const DarkTooltip = withStyles((theme: any) => ({
   arrow: {
     color: '#242424',
   },

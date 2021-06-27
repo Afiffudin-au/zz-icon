@@ -7,8 +7,8 @@ import { useHistory } from 'react-router'
 import { useAppSelector } from '../../../redux/app/hooks'
 import { useGetSearchIcon } from '../../../custom-hooks/useGetSearchIcon/useGetSearchIcon'
 import { selectTokenBlocks } from '../../../redux/features/icon/iconSlice'
-import {useAppDispatch} from '../../../redux/app/hooks'
-import {addParameter} from '../../../redux/features/icon/iconSlice'
+import { useAppDispatch } from '../../../redux/app/hooks'
+import { addParameter } from '../../../redux/features/icon/iconSlice'
 function SearchBanner() {
   const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false)
   const [typeToSearch, setTypeToSearch] = useState<string>('icons')
@@ -35,18 +35,22 @@ function SearchBanner() {
     if (typeToSearch === 'icons') {
       if (tokenAccepted) {
         getSearchIcon(token, query)
-        dispatch(addParameter({
-          query : query
-        }))
+        dispatch(
+          addParameter({
+            query: query,
+          })
+        )
       }
       history.push('/search-icons')
     }
     if (typeToSearch === 'packs') {
       if (tokenAccepted) {
         getSearchIcon(token, query)
-        dispatch(addParameter({
-          query : query
-        }))
+        dispatch(
+          addParameter({
+            query: query,
+          })
+        )
       }
       history.push('/search-packs')
     }
