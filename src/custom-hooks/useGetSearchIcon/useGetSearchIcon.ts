@@ -3,7 +3,7 @@ import {useAppDispatch} from '../../redux/app/hooks'
 import { addIconResult } from '../../redux/features/icon/iconSlice'
 export const useGetSearchIcon = ()=>{
   const dispatch = useAppDispatch()
-  const getSearchIcon = (token:Required<string>,query:Required<string>)=>{
+  const getSearchIcon = (token:Required<string>,query:Required<string>,page = 1)=>{
     dispatch(addIconResult({
       loading : true
     }))
@@ -15,7 +15,8 @@ export const useGetSearchIcon = ()=>{
       },
       url : 'https://api.flaticon.com/v2/search/icons/priority',
       params : {
-        q : query
+        q : query,
+        page : page
       }
     }).then(res=>{
       dispatch(addIconResult({

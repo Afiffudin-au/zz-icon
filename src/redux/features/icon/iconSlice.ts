@@ -69,4 +69,5 @@ export const selectCount = (state: RootState) => state.icons.value
 export const selectTokenBlocks = (state : RootState)=> state.icons.tokenBlocks
 export const selectTotalBlocks = (state:RootState)=>state.icons.TotalBlocks
 export const selectIconSearchBlocks = (state:RootState)=>state.icons.iconSearchBlocks
+export const selectParameter = (state:RootState)=>state.icons.parametersApi
 export default iconSlice.reducer
