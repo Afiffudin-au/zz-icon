@@ -10,6 +10,7 @@ import {
   selectTokenBlocks,
 } from '../../redux/features/icon/iconSlice'
 import { useGetSearchIcon } from '../../custom-hooks/useGetSearchIcon/useGetSearchIcon'
+import { useGetSearchPack } from '../../custom-hooks/useGetSearchPack/useGetSearchPack'
 import { useGetAccessToken } from '../../custom-hooks/useGetAccessToken/useGetAccessToken'
 function SearchBar() {
   const [query, setQuery] = useState<string>('')
@@ -18,7 +19,9 @@ function SearchBar() {
   const [isChecked, setIsChecked] = useState<boolean>(false)
   const { token, tokenAccepted } = useAppSelector(selectTokenBlocks)
   const { getSearchIcon } = useGetSearchIcon()
+  const { getSearchPack } = useGetSearchPack()
   const { getAccessToken } = useGetAccessToken()
+
   const history = useHistory()
   const dispatch = useAppDispatch()
   const handleCheck = (type: string) => {
@@ -43,17 +46,21 @@ function SearchBar() {
             query: query,
           })
         )
+      } else {
+        getAccessToken()
       }
       history.push('/search-icons')
     }
     if (typeToSearch === 'packs') {
       if (tokenAccepted) {
-        getSearchIcon(token, query)
+        getSearchPack(token, query)
         dispatch(
           addParameter({
             query: query,
           })
         )
+      } else {
+        getAccessToken()
       }
       history.push('/search-packs')
     }

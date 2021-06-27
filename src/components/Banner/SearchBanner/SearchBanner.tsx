@@ -6,9 +6,11 @@ import RadioButtonsGroup from '../RadioButtonsGroup/RadioButtonsGroup'
 import { useHistory } from 'react-router'
 import { useAppSelector } from '../../../redux/app/hooks'
 import { useGetSearchIcon } from '../../../custom-hooks/useGetSearchIcon/useGetSearchIcon'
+import { useGetSearchPack } from '../../../custom-hooks/useGetSearchPack/useGetSearchPack'
 import { selectTokenBlocks } from '../../../redux/features/icon/iconSlice'
 import { useAppDispatch } from '../../../redux/app/hooks'
 import { addParameter } from '../../../redux/features/icon/iconSlice'
+import { useGetAccessToken } from '../../../custom-hooks/useGetAccessToken/useGetAccessToken'
 function SearchBanner() {
   const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false)
   const [typeToSearch, setTypeToSearch] = useState<string>('icons')
@@ -16,6 +18,8 @@ function SearchBanner() {
   const [query, setQuery] = useState<string>('')
   const { token, tokenAccepted } = useAppSelector(selectTokenBlocks)
   const { getSearchIcon } = useGetSearchIcon()
+  const { getSearchPack } = useGetSearchPack()
+  const { getAccessToken } = useGetAccessToken()
   const history = useHistory()
   const dispatch = useAppDispatch()
   const handleCheck = (type: string) => {
@@ -40,17 +44,21 @@ function SearchBanner() {
             query: query,
           })
         )
+      } else {
+        getAccessToken()
       }
       history.push('/search-icons')
     }
     if (typeToSearch === 'packs') {
       if (tokenAccepted) {
-        getSearchIcon(token, query)
+        getSearchPack(token, query)
         dispatch(
           addParameter({
             query: query,
           })
         )
+      } else {
+        getAccessToken()
       }
       history.push('/search-packs')
     }

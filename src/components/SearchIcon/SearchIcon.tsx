@@ -13,6 +13,7 @@ import CardIcon from '../CardIcon/CardIcon'
 import GridContainerIcon from '../GridContainerIcon/GridContainerIcon'
 import { useGetSearchIcon } from '../../custom-hooks/useGetSearchIcon/useGetSearchIcon'
 import { useState } from 'react'
+import Pagenation from '../Pagenation/Pagenation'
 interface SearchIconItems {
   id: number
   pack_id: number
@@ -31,20 +32,25 @@ function SearchIcon() {
   const [page, setPage] = useState<number>(1)
   const { dataIcons, loading } = useAppSelector(selectIconSearchBlocks)
   const { getSearchIcon } = useGetSearchIcon()
-  const { token, tokenAccepted } = useAppSelector(selectTokenBlocks)
+  const { token } = useAppSelector(selectTokenBlocks)
   const { query } = useAppSelector(selectParameter)
   const handlePagenation = (pageNumber: number) => {
-    setPage(pageNumber)
-    if (tokenAccepted) {
-      getSearchIcon(token, query, pageNumber)
+    if (pageNumber === 0) {
+      setPage(1)
     }
+    if (pageNumber > 15) {
+      alert('Sorry : 15 page is max results')
+      return
+    }
+    setPage(pageNumber)
+    getSearchIcon(token, query, pageNumber)
   }
 
   return (
     <div className={style.searchIcon}>
       <NavigationBar />
       <SearchBar />
-      <div className={style.loading}>{loading && <LoadingCircle />}</div>
+      <div>{loading && <LoadingCircle />}</div>
       <GridContainerIcon>
         {!loading &&
           dataIcons?.data?.map((item: SearchIconItems, index: number) => (
@@ -59,22 +65,7 @@ function SearchIcon() {
           ))}
       </GridContainerIcon>
       {!loading && (
-        <div className={style.pagenation}>
-          <div
-            style={{ display: page === 1 ? 'none' : 'block' }}
-            onClick={() => handlePagenation(page - 1)}
-            className={style.arrowBack}>
-            <p>Previous</p>
-          </div>
-          <div>
-            <p className={style.pageNumber}>{page}</p>
-          </div>
-          <div
-            onClick={() => handlePagenation(page + 1)}
-            className={style.arrowForward}>
-            <p>Next</p>
-          </div>
-        </div>
+        <Pagenation page={page} handlePagenation={handlePagenation} />
       )}
     </div>
   )

@@ -6,6 +6,7 @@ import { useAppSelector } from '../../redux/app/hooks'
 import { selectTokenBlocks } from '../../redux/features/icon/iconSlice'
 import CardIconPacks from '../CardIconPack/CardIconPack'
 import LoadingCircle from '../Progress/LoadingCircle/LoadingCircle'
+import Pagenation from '../Pagenation/Pagenation'
 interface IconPacksItems {
   catagory: string
   id: number
@@ -42,11 +43,7 @@ function IconPacks() {
   return (
     <div className={style.iconPacks}>
       <h3 className={style.title}>Popular Icon Packs</h3>
-      {isLoading && (
-        <div className={style.loading}>
-          <LoadingCircle />
-        </div>
-      )}
+      <div>{isLoading && <LoadingCircle />}</div>
       <GridContainer>
         {!isLoading &&
           dataIcons?.data?.map((item: IconPacksItems, index: number) => (
@@ -60,22 +57,7 @@ function IconPacks() {
           ))}
       </GridContainer>
       {!isLoading && (
-        <div className={style.pagenation}>
-          <div
-            style={{ display: page === 1 ? 'none' : 'block' }}
-            onClick={() => handlePagenation(page - 1)}
-            className={style.arrowBack}>
-            <p>Previous</p>
-          </div>
-          <div>
-            <p className={style.pageNumber}>{page}</p>
-          </div>
-          <div
-            onClick={() => handlePagenation(page + 1)}
-            className={style.arrowForward}>
-            <p>Next</p>
-          </div>
-        </div>
+        <Pagenation page={page} handlePagenation={handlePagenation} />
       )}
     </div>
   )
