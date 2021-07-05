@@ -3,8 +3,16 @@ import { Navbar, Nav } from 'react-bootstrap'
 import nav from './NavigationBar.module.scss'
 import MenuIcon from '@material-ui/icons/Menu'
 import CloseIcon from '@material-ui/icons/Close'
+import { useHistory } from 'react-router-dom'
 function NavigationBar() {
   const [hamburgerIcon, setHamburgerIcon] = useState<boolean>(false)
+  const history = useHistory()
+  const linkToPacks = () => {
+    history.push('/packs')
+  }
+  const linkToUiIcons = () => {
+    history.push('/ui-icons')
+  }
   return (
     <Navbar className={nav.navbar} expand='sm' sticky='top'>
       <Navbar.Brand className={nav.brand} href='/'>
@@ -25,10 +33,10 @@ function NavigationBar() {
       </Navbar.Toggle>
       <Navbar.Collapse id='basic-navbar-nav'>
         <Nav className='mr-auto'>
-          <Nav.Link className={nav.link} href='#home'>
+          <Nav.Link onClick={linkToPacks} className={nav.link}>
             Packs
           </Nav.Link>
-          <Nav.Link className={nav.link} href='#link'>
+          <Nav.Link onClick={linkToUiIcons} className={nav.link}>
             UIcons
           </Nav.Link>
         </Nav>

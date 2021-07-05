@@ -5,6 +5,8 @@ import { useGetAccessToken } from './custom-hooks/useGetAccessToken/useGetAccess
 import Home from './components/Home/Home'
 import SearchIcon from './components/SearchIcon/SearchIcon'
 import SearchPack from './components/SearchPack/SearchPack'
+import IconPage from './components/secondPage/IconPage/IconPage'
+import PackPage from './components/secondPage/PackPage/PackPage'
 function App() {
   const { getAccessToken } = useGetAccessToken()
   useEffect(() => {
@@ -15,6 +17,12 @@ function App() {
     <Router>
       <div className='App'>
         <Switch>
+          <Route path='/ui-icons'>
+            <IconPage />
+          </Route>
+          <Route path='/packs'>
+            <PackPage />
+          </Route>
           <Route path='/search-packs'>
             <SearchPack />
           </Route>

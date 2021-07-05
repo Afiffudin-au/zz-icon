@@ -3,11 +3,16 @@ import styles from './SearchPack.module.scss'
 import SearchBar from '../SearchBar/SearchBar'
 import NavigationBar from '../NavigationBar/NavigationBar'
 import { useAppSelector } from '../../redux/app/hooks'
-import { selectIconPackBlocks } from '../../redux/features/icon/iconSlice'
+import {
+  selectIconPackBlocks,
+  selectParameter,
+  selectTokenBlocks,
+} from '../../redux/features/icon/iconSlice'
 import CardIconPacks from '../CardIconPack/CardIconPack'
 import GridContainer from '../GridContainer/GridContainer'
 import LoadingCircle from '../Progress/LoadingCircle/LoadingCircle'
 import Pagenation from '../Pagenation/Pagenation'
+import { useGetSearchPack } from '../../custom-hooks/useGetSearchPack/useGetSearchPack'
 interface IconPacksItems {
   catagory: string
   id: number
@@ -22,6 +27,10 @@ interface IconPacksItems {
 }
 function SearchPack() {
   const [page, setPage] = useState<number>(1)
+  const { token } = useAppSelector(selectTokenBlocks)
+  const { query } = useAppSelector(selectParameter)
+  const { getSearchPack } = useGetSearchPack()
+  const { dataPacks, loading } = useAppSelector(selectIconPackBlocks)
   const handlePagenation = (pageNumber: number) => {
     if (pageNumber === 0) {
       setPage(1)
@@ -31,9 +40,9 @@ function SearchPack() {
       return
     }
     setPage(pageNumber)
-    // getSearchIcon(token, query, pageNumber)
+    getSearchPack(token, query, pageNumber)
   }
-  const { dataPacks, loading } = useAppSelector(selectIconPackBlocks)
+
   return (
     <div className={styles.searchPack}>
       <NavigationBar />
