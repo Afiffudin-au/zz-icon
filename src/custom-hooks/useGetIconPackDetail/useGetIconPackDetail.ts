@@ -13,17 +13,11 @@ export const useGetIconDetail=  ()=>{
         Accept: 'application/json',
         Authorization: 'Bearer ' + token,
       },
-      url : `https://api.flaticon.com/v2/item/icon/${id}`,
+      url : `https://api.flaticon.com/v2/item/pack/${id}`,
     }).then(res=>{
-      dispatch(addIconDetail({
-        loading : false,
-        dataIcons : res.data
-      }))
+      console.log(res.data)
     }).catch(err=>{
-      dispatch(addIconDetail({
-        loading : false
-      }))
-      alert(err)
+     alert(err)
     })
   }
   return{
