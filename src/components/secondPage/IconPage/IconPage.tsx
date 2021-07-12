@@ -45,7 +45,6 @@ function IconPage() {
     setPage(pageNumber)
     getIcon(token, pageNumber)
   }
-  console.log(dataIcons)
   return (
     <div>
       <NavigationBar />
