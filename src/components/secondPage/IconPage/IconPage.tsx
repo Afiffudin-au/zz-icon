@@ -33,6 +33,7 @@ function IconPage() {
     if (token) {
       getIcon(token)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tokenAccepted])
   const handlePagenation = (pageNumber: number) => {
     if (pageNumber === 0) {

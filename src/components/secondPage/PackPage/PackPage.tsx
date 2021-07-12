@@ -27,6 +27,7 @@ function PackPage() {
   const { token, tokenAccepted } = useAppSelector(selectTokenBlocks)
   useEffect(() => {
     getIconPacks(token)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tokenAccepted])
   const handlePagenation = (pageNumber: number) => {
     if (pageNumber === 0) {
