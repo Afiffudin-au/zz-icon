@@ -5,6 +5,7 @@ import { selectTokenBlocks } from '../../redux/features/icon/iconSlice'
 import style from './CardIconPack.module.scss'
 import ModalDetailPack from '../ModalDetailPack/ModalDetailPack'
 import { Modal } from '@material-ui/core'
+import { useHistory } from 'react-router-dom'
 interface CardIconPacksItems {
   image: string
   numberOfIcons: number
@@ -28,14 +29,11 @@ function CardIconPacks({
   }
   const handleClose = () => {
     setOpen(false)
-    console.log('Close')
   }
   const handleDetail = () => {
-    console.log('Open')
     setOpen(true)
     getIconPackDetail(id, token)
   }
-
   return (
     <>
       <div className={style.cardIconPack} onClick={handleDetail}>

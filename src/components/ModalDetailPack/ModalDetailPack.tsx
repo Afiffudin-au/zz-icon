@@ -43,7 +43,6 @@ function ModalDetailPack({ handleClose }: any) {
       <div style={{ position: 'sticky', top: 0, marginBottom: '10px' }}>
         {loading && <LoadingLinear />}
       </div>
-
       <div className={styles.closeIcon}>
         <IconButton onClick={handleClose} className={styles.borderClose}>
           <CloseIcon style={{ fontSize: 20 }} />
@@ -61,9 +60,9 @@ function ModalDetailPack({ handleClose }: any) {
               />
             </div>
             <div className={styles.content1}>
-              <p>Title : {data.description}</p>
-              <p>Category : {data.category}</p>
-              <p>Downloads : {data.downloads}</p>
+              <p>Title : {data?.description}</p>
+              <p>Category : {data?.category}</p>
+              <p>Downloads : {data?.downloads}</p>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 Tags :{' '}
                 {tagsSplit?.map((item) => (
@@ -74,7 +73,7 @@ function ModalDetailPack({ handleClose }: any) {
                   </p>
                 ))}{' '}
               </div>
-              <p>License : {data.premium === 0 ? 'Free' : 'Premium'}</p>
+              <p>License : {data?.premium === 0 ? 'Free' : 'Premium'}</p>
             </div>
           </div>
         </div>
