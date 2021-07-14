@@ -36,7 +36,6 @@ function CardIconPacks({
     getIconPackDetail(id, token)
   }
 
-  console.log(open)
   return (
     <>
       <div className={style.cardIconPack} onClick={handleDetail}>

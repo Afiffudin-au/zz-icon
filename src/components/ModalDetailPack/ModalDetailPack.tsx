@@ -6,7 +6,6 @@ import IconButton from '@material-ui/core/IconButton'
 import { useAppSelector } from '../../redux/app/hooks'
 import {
   selectIconPackDetailBlocks,
-  selectParameter,
   selectTokenBlocks,
 } from '../../redux/features/icon/iconSlice'
 import { LoadingLinear } from '../Progress/LoadingLinear/LoadingLinear'
@@ -32,7 +31,6 @@ function ModalDetailPack({ handleClose }: any) {
   )
   const history = useHistory()
   const { token } = useAppSelector(selectTokenBlocks)
-  // const { query } = useAppSelector(selectParameter)
   const { getSearchPack } = useGetSearchPack()
   const { data }: { data: DetailPackItems } = dataPackDetails
   const tagsSplit = data?.tags?.split(',')
@@ -40,7 +38,6 @@ function ModalDetailPack({ handleClose }: any) {
     getSearchPack(token, tag, 1)
     history.push('/search-packs')
   }
-  console.log(tagsSplit)
   return (
     <div className={classes.paper + ' ModalDetail'}>
       <div style={{ position: 'sticky', top: 0, marginBottom: '10px' }}>
@@ -77,6 +74,7 @@ function ModalDetailPack({ handleClose }: any) {
                   </p>
                 ))}{' '}
               </div>
+              <p>License : {data.premium === 0 ? 'Free' : 'Premium'}</p>
             </div>
           </div>
         </div>
