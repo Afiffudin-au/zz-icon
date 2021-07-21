@@ -24,8 +24,10 @@ function CardIcon({
   const { getIconDetail } = useGetIconDetail()
   const { token } = useAppSelector(selectTokenBlocks)
   const [open, setOpen] = useState<boolean>(false)
+  const [iconId, setIconId] = useState<number>(0)
   const handleDetail = () => {
     getIconDetail(id, token)
+    setIconId(id)
     setOpen(true)
   }
   const handleClose = () => {
@@ -45,7 +47,7 @@ function CardIcon({
         aria-labelledby='simple-modal-title'
         aria-describedby='simple-modal-description'
         style={{ overflowY: 'scroll' }}>
-        <ModalDetailIcon handleClose={handleClose} />
+        <ModalDetailIcon handleClose={handleClose} iconId={iconId} />
       </Modal>
     </>
   )
