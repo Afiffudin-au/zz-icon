@@ -39,7 +39,7 @@ function ModalDetailPack({ handleClose }: any) {
     history.push('/search-packs')
   }
   return (
-    <div className={classes.paper + ' ModalDetail'}>
+    <div className={classes.paper + ' ModalDetail ' + styles.wrapModal}>
       <div style={{ position: 'sticky', top: 0, marginBottom: '10px' }}>
         {loading && <LoadingLinear />}
       </div>
@@ -63,7 +63,7 @@ function ModalDetailPack({ handleClose }: any) {
               <p>Title : {data?.description}</p>
               <p>Category : {data?.category}</p>
               <p>Downloads : {data?.downloads}</p>
-              <div style={{ display: 'flex', alignItems: 'center' }}>
+              <div className={styles.wrapTags}>
                 Tags :{' '}
                 {tagsSplit?.map((item) => (
                   <p

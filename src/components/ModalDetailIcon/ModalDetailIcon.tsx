@@ -43,7 +43,7 @@ function ModalDetailIcon({ handleClose }: any) {
     history.push('/search-icons')
   }
   return (
-    <div className={classes.paper + ' ModalDetail'}>
+    <div className={classes.paper + ' ModalDetail ' + styles.wrapModal}>
       <div style={{ position: 'sticky', top: 0, marginBottom: '10px' }}>
         {loading && <LoadingLinear />}
       </div>
@@ -67,7 +67,7 @@ function ModalDetailIcon({ handleClose }: any) {
               <p>Category : {data?.category}</p>
               <p>Downloads : {data?.downloads}</p>
               <p>Pack Name : {data?.pack_name}</p>
-              <div style={{ display: 'flex', alignItems: 'center' }}>
+              <div className={styles.wrapTags}>
                 Tags :{' '}
                 {tagsSplit?.map((item) => (
                   <p

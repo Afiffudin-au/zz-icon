@@ -27,6 +27,11 @@
     p {
       margin: 1px;
     }
+    .wrapTags {
+      p {
+        display: contents;
+      }
+    }
     .tags {
       color: #42a5f5;
       margin: 2px;
@@ -35,6 +40,21 @@
         color: #64b5f6;
         text-decoration: underline;
       }
+    }
+  }
+}
+@media (max-width: 576px) {
+  .wrapModal {
+    height: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .contents {
+    .wrap {
+      flex-direction: column;
+    }
+    .imageBox {
+      margin: auto;
     }
   }
 }
