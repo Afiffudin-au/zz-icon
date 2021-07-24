@@ -14,7 +14,7 @@ function Banner() {
   const { iconTotals } = useAppSelector(selectTotalBlocks)
   useEffect(() => {
     if (token) {
-      // getTotalIcon(token)
+      getTotalIcon(token)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tokenAccepted])
