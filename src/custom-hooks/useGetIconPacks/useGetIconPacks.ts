@@ -15,6 +15,7 @@ export const useGetIconPacks = () => {
       params: {
         page: page,
         limit: limit,
+        color : 2
       },
     })
       .then((res) => {
