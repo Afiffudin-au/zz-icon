@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import styles from './PackPage.module.scss'
 import SearchBar from '../../SearchBar/SearchBar'
 import NavigationBar from '../../NavigationBar/NavigationBar'
 import { useGetIconPacks } from '../../../custom-hooks/useGetIconPacks/useGetIconPacks'
@@ -26,7 +25,9 @@ function PackPage() {
   const { getIconPacks, dataIcons, isLoading } = useGetIconPacks()
   const { token, tokenAccepted } = useAppSelector(selectTokenBlocks)
   useEffect(() => {
-    getIconPacks(token)
+    if (token) {
+      getIconPacks(token)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tokenAccepted])
   const handlePagenation = (pageNumber: number) => {
