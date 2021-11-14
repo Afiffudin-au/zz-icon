@@ -4,6 +4,7 @@ import nav from './NavigationBar.module.scss'
 import MenuIcon from '@material-ui/icons/Menu'
 import CloseIcon from '@material-ui/icons/Close'
 import { useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 function NavigationBar() {
   const [hamburgerIcon, setHamburgerIcon] = useState<boolean>(false)
   const history = useHistory()
@@ -15,9 +16,9 @@ function NavigationBar() {
   }
   return (
     <Navbar className={nav.navbar} expand='sm' sticky='top'>
-      <Navbar.Brand className={nav.brand} href='/'>
+      <Link className={nav.brand} to='/'>
         ZZ - icons
-      </Navbar.Brand>
+      </Link>
       <Navbar.Toggle className={nav.toggle} aria-controls='basic-navbar-nav'>
         {hamburgerIcon ? (
           <CloseIcon
