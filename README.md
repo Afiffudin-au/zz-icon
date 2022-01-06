@@ -8,6 +8,9 @@ hello programmers! Saya mempunyai proyek yang sangat sederhana yaitu proyek yang
 
 Aplikasi ini akan menyajikan konten seperti icon, icon packs, pencarian icons, pencarian paket icon, halaman icons, halaman paket icon, detail, pagenation dan lain-lain. Semua itu dibalut menggunakan library reactjs dan itu telah menunjukan performa yang sangat cepat.
 
+## Note
+Most of my projects are of the private type, but for now and so on I will make my projects public freely.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
