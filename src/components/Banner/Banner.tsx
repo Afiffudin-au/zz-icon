@@ -6,7 +6,7 @@ import {
   selectTokenBlocks,
   selectTotalBlocks,
 } from '../../redux/features/icon/iconSlice'
-import style from './Banner.module.scss'
+import styles from './Banner.module.scss'
 import SearchBanner from './SearchBanner/SearchBanner'
 function Banner() {
   const { getTotalIcon } = useGetTotal()
@@ -19,13 +19,13 @@ function Banner() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tokenAccepted])
   return (
-    <div className={style.banner}>
-      <Jumbotron className={style.jumbotron} fluid>
+    <div className={styles.banner}>
+      <Jumbotron className={styles.jumbotron} fluid>
         <Container>
-          <h1 className={style.title}>
+          <h1 className={styles.title}>
             Access {iconTotals.toLocaleString()} vector icons
           </h1>
-          <p className={style.subTitle}>
+          <p className={styles.subTitle}>
             The <strong>largest database</strong> of free icons available in
             PNG, SVG, EPS, PSD and BASE 64 formats.
           </p>

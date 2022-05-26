@@ -68,8 +68,7 @@ function ModalDetailPack({ handleClose }: any) {
                 {tagsSplit?.map((item) => (
                   <p
                     className={styles.tags}
-                    onClick={() => handleSearchByTag(item)}
-                  >
+                    onClick={() => handleSearchByTag(item)}>
                     {item + ','}
                   </p>
                 ))}{' '}

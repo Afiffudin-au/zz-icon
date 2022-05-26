@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import style from './SearchBanner.module.scss'
+import styles from './SearchBanner.module.scss'
 import SearchIcon from '@material-ui/icons/Search'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import RadioButtonsGroup from '../RadioButtonsGroup/RadioButtonsGroup'
@@ -65,10 +65,10 @@ function SearchBanner() {
   }
   return (
     <>
-      <form onSubmit={handleSearch} className={style.searchBanner} action='/'>
-        <div className={style.searchBar}>
-          <div className={style.dropdownWrap}>
-            <div className={style.dropdown} onClick={handleOpen}>
+      <form onSubmit={handleSearch} className={styles.searchBanner} action='/'>
+        <div className={styles.searchBar}>
+          <div className={styles.dropdownWrap}>
+            <div className={styles.dropdown} onClick={handleOpen}>
               {typeToSearch}
               <div>
                 <ArrowDropDownIcon style={{ color: 'grey' }} />
@@ -84,10 +84,10 @@ function SearchBanner() {
 
           <input
             onChange={(e) => setQuery(e.target.value)}
-            className={style.searchInput}
+            className={styles.searchInput}
             type='text'
           />
-          <div onClick={handleSearch} className={style.searchButton}>
+          <div onClick={handleSearch} className={styles.searchButton}>
             <div>
               <SearchIcon style={{ color: 'white' }} />
             </div>

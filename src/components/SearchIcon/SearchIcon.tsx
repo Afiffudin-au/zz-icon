@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchBar from '../SearchBar/SearchBar'
 import NavigationBar from '../NavigationBar/NavigationBar'
-import style from './SearchIcon.module.scss'
+import styles from './SearchIcon.module.scss'
 import { useAppSelector } from '../../redux/app/hooks'
 import {
   selectIconSearchBlocks,
@@ -47,7 +47,7 @@ function SearchIcon() {
   }
 
   return (
-    <div className={style.searchIcon}>
+    <div className={styles.searchIcon}>
       <NavigationBar />
       <SearchBar />
       <div>{loading && <LoadingCircle />}</div>

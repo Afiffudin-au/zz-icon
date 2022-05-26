@@ -1,7 +1,7 @@
 import React from 'react'
-import style from './GridContainer.module.scss'
+import styles from './GridContainer.module.scss'
 function GridContainer({ children }: { children?: any }) {
-  return <div className={style.gridContainer}>{children}</div>
+  return <div className={styles.gridContainer}>{children}</div>
 }
 
 export default GridContainer

@@ -1,4 +1,4 @@
-import style from './RadioButtonsGroup.module.scss'
+import styles from './RadioButtonsGroup.module.scss'
 export default function RadioButtonsGroup({
   handleCheck,
   isChecked,
@@ -7,7 +7,7 @@ export default function RadioButtonsGroup({
   isChecked: boolean
 }) {
   return (
-    <div className={style.container}>
+    <div className={styles.container}>
       <form>
         <label>
           <input type='radio' name='radio' checked={isChecked || true} />

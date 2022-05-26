@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import GridContainer from '../GridContainer/GridContainer'
-import style from './IconPacks.module.scss'
+import styles from './IconPacks.module.scss'
 import { useGetIconPacks } from '../../custom-hooks/useGetIconPacks/useGetIconPacks'
 import { useAppSelector } from '../../redux/app/hooks'
 import { selectTokenBlocks } from '../../redux/features/icon/iconSlice'
@@ -41,8 +41,8 @@ function IconPacks() {
     getIconPacks(token, numberOfPage)
   }
   return (
-    <div className={style.iconPacks}>
-      <h3 className={style.title}>Popular Icon Packs</h3>
+    <div className={styles.iconPacks}>
+      <h3 className={styles.title}>Popular Icon Packs</h3>
       <div>{isLoading && <LoadingCircle />}</div>
       <GridContainer>
         {!isLoading &&

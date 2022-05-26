@@ -1,9 +1,9 @@
 import { CircularProgress } from '@material-ui/core'
 import React from 'react'
-import style from './LoadingCircle.module.scss'
+import styles from './LoadingCircle.module.scss'
 function LoadingCircle() {
   return (
-    <div className={style.loading}>
+    <div className={styles.loading}>
       <CircularProgress />
     </div>
   )

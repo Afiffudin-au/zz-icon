@@ -81,8 +81,7 @@ function ModalDetailIcon({ handleClose, iconId }: any) {
                 {tagsSplit?.map((item) => (
                   <p
                     className={styles.tags}
-                    onClick={() => handleSearchByTag(item)}
-                  >
+                    onClick={() => handleSearchByTag(item)}>
                     {item + ','}
                   </p>
                 ))}{' '}
@@ -93,8 +92,7 @@ function ModalDetailIcon({ handleClose, iconId }: any) {
                   name=''
                   id=''
                   className={styles.selectResolution}
-                  onChange={(e) => setSize(e.target.value)}
-                >
+                  onChange={(e) => setSize(e.target.value)}>
                   <option value=''>Choose Resolution</option>
                   {sizeParams.map((item: any, index: number) => (
                     <option value={item}>{item} px</option>

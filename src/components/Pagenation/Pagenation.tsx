@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './Pagenation.module.scss'
+import styles from './Pagenation.module.scss'
 function Pagenation({
   page,
   handlePagenation,
@@ -8,21 +8,19 @@ function Pagenation({
   handlePagenation: any
 }) {
   return (
-    <div className={style.pagenation}>
+    <div className={styles.pagenation}>
       <div
         style={{ display: page === 1 ? 'none' : 'block' }}
         onClick={() => handlePagenation(page - 1)}
-        className={style.arrowBack}
-      >
+        className={styles.arrowBack}>
         <p>Previous</p>
       </div>
       <div>
-        <p className={style.pageNumber}>{page}</p>
+        <p className={styles.pageNumber}>{page}</p>
       </div>
       <div
         onClick={() => handlePagenation(page + 1)}
-        className={style.arrowForward}
-      >
+        className={styles.arrowForward}>
         <p>Next</p>
       </div>
     </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useGetIconPackDetail } from '../../custom-hooks/useGetIconPackDetail/useGetIconPackDetail'
 import { useAppSelector } from '../../redux/app/hooks'
 import { selectTokenBlocks } from '../../redux/features/icon/iconSlice'
-import style from './CardIconPack.module.scss'
+import styles from './CardIconPack.module.scss'
 import ModalDetailPack from '../ModalDetailPack/ModalDetailPack'
 import { Modal } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
@@ -36,8 +36,8 @@ function CardIconPacks({
   }
   return (
     <>
-      <div className={style.cardIconPack} onClick={handleDetail}>
-        <div className={style.imageThumb}>
+      <div className={styles.cardIconPack} onClick={handleDetail}>
+        <div className={styles.imageThumb}>
           {!imageLoad && <img src='/e8e8e8.png' alt='' />}
 
           <picture>
@@ -50,9 +50,9 @@ function CardIconPacks({
           </picture>
         </div>
 
-        <div className={style.desc}>
-          <p className={style.iconDesc}>{description}</p>
-          <p className={style.iconNumber}>{numberOfIcons}</p>
+        <div className={styles.desc}>
+          <p className={styles.iconDesc}>{description}</p>
+          <p className={styles.iconNumber}>{numberOfIcons}</p>
         </div>
       </div>
       <Modal
@@ -60,8 +60,7 @@ function CardIconPacks({
         onClose={handleClose}
         aria-labelledby='simple-modal-title'
         aria-describedby='simple-modal-description'
-        style={{ overflowY: 'scroll' }}
-      >
+        style={{ overflowY: 'scroll' }}>
         <ModalDetailPack handleClose={handleClose} />
       </Modal>
     </>
