@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles'
 export const useStylesModal = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
@@ -7,4 +7,4 @@ export const useStylesModal = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 2, 3),
   },
-}));
+}))

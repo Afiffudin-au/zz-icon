@@ -60,7 +60,8 @@ function CardIconPacks({
         onClose={handleClose}
         aria-labelledby='simple-modal-title'
         aria-describedby='simple-modal-description'
-        style={{ overflowY: 'scroll' }}>
+        style={{ overflowY: 'scroll' }}
+      >
         <ModalDetailPack handleClose={handleClose} />
       </Modal>
     </>

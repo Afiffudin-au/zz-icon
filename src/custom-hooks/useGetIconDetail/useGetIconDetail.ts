@@ -1,32 +1,40 @@
 import axios from 'axios'
 import { useAppDispatch } from '../../redux/app/hooks'
 import { addIconDetail } from '../../redux/features/icon/iconSlice'
-export const useGetIconDetail=  ()=>{
+export const useGetIconDetail = () => {
   const dispatch = useAppDispatch()
-  const getIconDetail =  (id:number,token:Required<string>)=>{
-    dispatch(addIconDetail({
-      loading : true
-    }))
+  const getIconDetail = (id: number, token: Required<string>) => {
+    dispatch(
+      addIconDetail({
+        loading: true,
+      })
+    )
     axios({
-      method : 'get',
-      headers : {
+      method: 'get',
+      headers: {
         Accept: 'application/json',
         Authorization: 'Bearer ' + token,
       },
-      url : `https://api.flaticon.com/v2/item/icon/${id}`,
-    }).then(res=>{
-      dispatch(addIconDetail({
-        loading : false,
-        dataIcons : res.data
-      }))
-    }).catch(err=>{
-      dispatch(addIconDetail({
-        loading : false
-      }))
-      alert(err)
+      url: `https://api.flaticon.com/v2/item/icon/${id}`,
     })
+      .then((res) => {
+        dispatch(
+          addIconDetail({
+            loading: false,
+            dataIcons: res.data,
+          })
+        )
+      })
+      .catch((err) => {
+        dispatch(
+          addIconDetail({
+            loading: false,
+          })
+        )
+        alert(err)
+      })
   }
-  return{
-    getIconDetail
+  return {
+    getIconDetail,
   }
 }

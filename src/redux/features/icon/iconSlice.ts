@@ -19,16 +19,16 @@ export interface iconState {
     dataIcons: any
   }
   iconPackBlocks: {
-    dataPacks: any,
-    loading: boolean,
-  },
-  iconDetailBlocks : {
-    dataIconDetails : any,
-    loading : boolean
-  },
-  iconPackDetailBlocks : {
-    dataPackDetails : any,
-    loading : boolean
+    dataPacks: any
+    loading: boolean
+  }
+  iconDetailBlocks: {
+    dataIconDetails: any
+    loading: boolean
+  }
+  iconPackDetailBlocks: {
+    dataPackDetails: any
+    loading: boolean
   }
 }
 
@@ -53,14 +53,14 @@ const initialState: iconState = {
     dataPacks: [],
     loading: false,
   },
-  iconDetailBlocks : {
-    dataIconDetails : [],
-    loading : false
+  iconDetailBlocks: {
+    dataIconDetails: [],
+    loading: false,
   },
-  iconPackDetailBlocks : {
-    dataPackDetails : [],
-    loading : false
-  }
+  iconPackDetailBlocks: {
+    dataPackDetails: [],
+    loading: false,
+  },
 }
 
 export const iconSlice = createSlice({
@@ -83,18 +83,19 @@ export const iconSlice = createSlice({
       state.iconSearchBlocks.loading = action.payload.loading
       state.iconSearchBlocks.dataIcons = action.payload.dataIcons || []
     },
-    addPackResult : (state,action)=>{
+    addPackResult: (state, action) => {
       state.iconPackBlocks.dataPacks = action.payload.dataPacks || []
       state.iconPackBlocks.loading = action.payload.loading
     },
-    addIconDetail : (state,action)=>{
+    addIconDetail: (state, action) => {
       state.iconDetailBlocks.dataIconDetails = action.payload.dataIcons || []
       state.iconDetailBlocks.loading = action.payload.loading
     },
-    addPackDetail : (state,action)=>{
-      state.iconPackDetailBlocks.dataPackDetails = action.payload.dataPacks || []
-      state.iconPackDetailBlocks.loading = action.payload.loading 
-    }
+    addPackDetail: (state, action) => {
+      state.iconPackDetailBlocks.dataPackDetails =
+        action.payload.dataPacks || []
+      state.iconPackDetailBlocks.loading = action.payload.loading
+    },
   },
 })
 
@@ -105,7 +106,7 @@ export const {
   addParameter,
   addPackResult,
   addIconDetail,
-  addPackDetail
+  addPackDetail,
 } = iconSlice.actions
 
 export const selectCount = (state: RootState) => state.icons.value
@@ -114,7 +115,10 @@ export const selectTotalBlocks = (state: RootState) => state.icons.TotalBlocks
 export const selectIconSearchBlocks = (state: RootState) =>
   state.icons.iconSearchBlocks
 export const selectParameter = (state: RootState) => state.icons.parametersApi
-export const selectIconPackBlocks = (state:RootState) => state.icons.iconPackBlocks
-export const selectIconDetailBlocks = (state:RootState) => state.icons.iconDetailBlocks
-export const selectIconPackDetailBlocks = (state:RootState) => state.icons.iconPackDetailBlocks
+export const selectIconPackBlocks = (state: RootState) =>
+  state.icons.iconPackBlocks
+export const selectIconDetailBlocks = (state: RootState) =>
+  state.icons.iconDetailBlocks
+export const selectIconPackDetailBlocks = (state: RootState) =>
+  state.icons.iconPackDetailBlocks
 export default iconSlice.reducer

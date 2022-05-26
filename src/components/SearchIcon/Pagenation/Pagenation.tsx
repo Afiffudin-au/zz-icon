@@ -12,7 +12,8 @@ function Pagenation({
       <div
         style={{ display: page === 1 ? 'none' : 'block' }}
         onClick={() => handlePagenation(page - 1)}
-        className={style.arrowBack}>
+        className={style.arrowBack}
+      >
         <p>Previous</p>
       </div>
       <div>
@@ -20,7 +21,8 @@ function Pagenation({
       </div>
       <div
         onClick={() => handlePagenation(page + 1)}
-        className={style.arrowForward}>
+        className={style.arrowForward}
+      >
         <p>Next</p>
       </div>
     </div>

@@ -46,7 +46,8 @@ function CardIcon({
         onClose={handleClose}
         aria-labelledby='simple-modal-title'
         aria-describedby='simple-modal-description'
-        style={{ overflowY: 'scroll' }}>
+        style={{ overflowY: 'scroll' }}
+      >
         <ModalDetailIcon handleClose={handleClose} iconId={iconId} />
       </Modal>
     </>
