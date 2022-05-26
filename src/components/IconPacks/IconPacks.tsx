@@ -56,7 +56,7 @@ function IconPacks() {
             />
           ))}
       </GridContainer>
-      {!isLoading && (
+      {!isLoading && dataIcons?.data && (
         <Pagenation page={page} handlePagenation={handlePagenation} />
       )}
     </div>
