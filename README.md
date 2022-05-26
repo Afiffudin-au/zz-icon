@@ -1,3 +1,16 @@
+## Description english
+hello programmers! I have a very simple project that is a project that displays a lot of icons, icon packs and can be downloaded. I'm using the API from flaticon.com for data retrieval for my app. My application is made using reactjs typescript.
+
+This application will present content such as icons, icon packs, search icons, search icon packs, icons pages, icon pack pages, details, pagenation and others. It's all wrapped using the reactjs library and it has shown very fast performance.
+
+## Description indonesia
+hello programmers! Saya mempunyai proyek yang sangat sederhana yaitu proyek yang menampilkan banyak icon, icon pack dan bisa didownload. Saya menggunakan API dari flaticon.com untuk pengambilan data untuk aplikasi saya. Aplikasi saya dibuat dengan menggunakan reactjs typescript.
+
+Aplikasi ini akan menyajikan konten seperti icon, icon packs, pencarian icons, pencarian paket icon, halaman icons, halaman paket icon, detail, pagenation dan lain-lain. Semua itu dibalut menggunakan library reactjs dan itu telah menunjukan performa yang sangat cepat.
+
+## Note
+Most of my projects are of the private type, but for now and so on I will make my projects public freely.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
